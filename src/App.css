@@ -1,0 +1,6 @@
+.form {
+  height: 350px;
+  width: 350px;
+  display: flex;
+  flex-wrap: wrap;
+}
