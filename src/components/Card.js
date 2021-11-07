@@ -13,17 +13,14 @@ class Card extends React.Component {
         <p data-testid="attr1-card">
           Capacity:
           { cardAttr1 }
-          K
         </p>
         <p data-testid="attr2-card">
           Crowd:
           { cardAttr2 }
-          pts
         </p>
         <p data-testid="attr3-card">
           Beauty:
           { cardAttr3 }
-          pts
         </p>
         <p data-testid="rare-card">{ cardRare }</p>
         {

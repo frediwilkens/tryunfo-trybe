@@ -8,29 +8,47 @@ class App extends React.Component {
     super();
 
     this.state = {
-      name: 'Stanford Bridge',
-      image: 'https://static.wikia.nocookie.net/the-football-database/images/7/78/Chelsea_Stamford_Bridge_001.jpg',
-      description: 'Chelsea FC Stadium located in London UK.',
-      attr1: '42',
-      attr2: '100',
-      attr3: '100',
-      rarity: 'muito raro',
+      name: '',
+      image: '',
+      description: '',
+      attr1: '0',
+      attr2: '0',
+      attr3: '0',
+      rarity: 'normal',
       trunfo: false,
+      saveButton: true,
     };
+  }
+
+  saveButtonFunction = () => {
+    const { name, description, image,
+      rarity, attr1, attr2, attr3,
+    } = this.state;
+
+    const min = 0;
+    const max = 90;
+    const sum = 210;
+
+    if (name && description && image && rarity
+      && attr1 >= min && attr1 <= max
+      && attr2 >= min && attr2 <= max
+      && attr3 >= min && attr3 <= max
+      && (Number(attr1) + Number(attr2) + Number(attr3)) <= sum) {
+      return this.setState({ saveButton: false });
+    } return this.setState({ saveButton: true });
   }
 
   handleChange = ({ target: { name, value, type, checked } }) => {
     const finalValue = type === 'checkbox' ? checked : value;
     this.setState({
       [name]: finalValue,
-    });
+    }, this.saveButtonFunction);
   }
 
   render() {
     const { name, image, description,
       attr1, attr2, attr3,
-      rarity, trunfo } = this.state;
-
+      rarity, trunfo, saveButton } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -44,6 +62,7 @@ class App extends React.Component {
           cardRare={ rarity }
           cardTrunfo={ trunfo }
           onInputChange={ this.handleChange }
+          isSaveButtonDisabled={ saveButton }
         />
         <Card
           cardName={ name }
