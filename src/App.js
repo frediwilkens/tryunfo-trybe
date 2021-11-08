@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import './App.css';
 import Card from './components/Card';
+import Album from './components/Album';
 
 class App extends React.Component {
   constructor() {
@@ -19,6 +20,7 @@ class App extends React.Component {
       saveButton: true,
       hasTrunfo: false,
       cards: [],
+      filterName: '',
     };
   }
 
@@ -91,7 +93,8 @@ class App extends React.Component {
   render() {
     const { cardName, cardImage, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
-      cardRare, cardTrunfo, saveButton, hasTrunfo, cards } = this.state;
+      cardRare, cardTrunfo, saveButton, hasTrunfo,
+      cards, filterName } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -119,31 +122,22 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        <div className="album">
-          {
-            cards.map((card) => (
-              <div key={ card.cardName }>
-                <Card
-                  cardName={ card.cardName }
-                  cardDescription={ card.cardDescription }
-                  cardImage={ card.cardImage }
-                  cardAttr1={ card.cardAttr1 }
-                  cardAttr2={ card.cardAttr2 }
-                  cardAttr3={ card.cardAttr3 }
-                  cardRare={ card.cardRare }
-                  cardTrunfo={ card.cardTrunfo }
-                />
-                <button
-                  type="button"
-                  data-testid="delete-button"
-                  onClick={ () => this.excludeCard(card) }
-                >
-                  Excluir
-                </button>
-              </div>
-            ))
-          }
-        </div>
+        <label htmlFor="filterName">
+          Name Filter:
+          <input
+            type="text"
+            data-testid="name-filter"
+            name="filterName"
+            id="filterName"
+            value={ filterName }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <Album
+          cards={ cards }
+          excludeCard={ this.excludeCard }
+          filterName={ filterName }
+        />
       </div>
     );
   }
