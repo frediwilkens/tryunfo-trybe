@@ -46,10 +46,10 @@ Card.defaultProps = {
   cardName: 'Stanford Bridge',
   cardImage: 'https://static.wikia.nocookie.net/the-football-database/images/7/78/Chelsea_Stamford_Bridge_001.jpg',
   cardDescription: 'Chelsea FC Stadium located in London UK.',
-  cardAttr1: '99',
-  cardAttr2: '99',
-  cardAttr3: '99',
-  cardRare: 'muito raro',
+  cardAttr1: '0',
+  cardAttr2: '0',
+  cardAttr3: '0',
+  cardRare: 'normal',
   cardTrunfo: true,
 };
 
