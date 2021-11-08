@@ -81,6 +81,13 @@ class App extends React.Component {
     }, this.saveValidation);
   }
 
+  excludeCard = (targetCard) => {
+    this.setState((state) => ({
+      cards: state.cards.filter((card) => card !== targetCard),
+      hasTrunfo: state.hasTrunfo && !targetCard.cardTrunfo,
+    }));
+  }
+
   render() {
     const { cardName, cardImage, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
@@ -126,6 +133,13 @@ class App extends React.Component {
                   cardRare={ card.cardRare }
                   cardTrunfo={ card.cardTrunfo }
                 />
+                <button
+                  type="button"
+                  data-testid="delete-button"
+                  onClick={ () => this.excludeCard(card) }
+                >
+                  Excluir
+                </button>
               </div>
             ))
           }
