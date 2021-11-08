@@ -4,12 +4,18 @@ import Card from './Card';
 
 class Album extends React.Component {
   render() {
-    const { cards, excludeCard, filterName } = this.props;
+    const { cards, excludeCard, filterName, filterRare } = this.props;
     return (
       <div className="album">
         {
           cards
             .filter((card) => card.cardName.includes(filterName))
+            .filter((card) => {
+              if (filterRare !== 'todas') {
+                return card.cardRare === filterRare;
+              }
+              return card;
+            })
             .map((card) => (
               <div key={ card.cardName }>
                 <Card
@@ -41,12 +47,14 @@ Album.propTypes = {
   cards: propTypes.arrayOf(Object),
   excludeCard: propTypes.func,
   filterName: propTypes.string,
+  filterRare: propTypes.string,
 };
 
 Album.defaultProps = {
   cards: propTypes.arrayOf(Object),
   excludeCard: propTypes.func,
   filterName: '',
+  filterRare: 'todas',
 };
 
 export default Album;

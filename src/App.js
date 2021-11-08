@@ -21,6 +21,7 @@ class App extends React.Component {
       hasTrunfo: false,
       cards: [],
       filterName: '',
+      filterRare: 'todas',
     };
   }
 
@@ -94,7 +95,7 @@ class App extends React.Component {
     const { cardName, cardImage, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
       cardRare, cardTrunfo, saveButton, hasTrunfo,
-      cards, filterName } = this.state;
+      cards, filterName, filterRare } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -133,10 +134,26 @@ class App extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="filterRare">
+          Rare Filter:
+          <select
+            data-testid="rare-filter"
+            name="filterRare"
+            id="filterRare"
+            value={ filterRare }
+            onChange={ this.handleChange }
+          >
+            <option>todas</option>
+            <option>normal</option>
+            <option>raro</option>
+            <option>muito raro</option>
+          </select>
+        </label>
         <Album
           cards={ cards }
           excludeCard={ this.excludeCard }
           filterName={ filterName }
+          filterRare={ filterRare }
         />
       </div>
     );
