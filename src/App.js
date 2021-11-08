@@ -3,6 +3,7 @@ import Form from './components/Form';
 import './App.css';
 import Card from './components/Card';
 import Album from './components/Album';
+import SuperTrunfo from './components/SuperTrunfo';
 
 class App extends React.Component {
   constructor() {
@@ -22,8 +23,11 @@ class App extends React.Component {
       cards: [],
       filterName: '',
       filterRare: 'todas',
+      filterTrunfo: false,
     };
   }
+
+  preventSubmit = (event) => event.preventDefault();
 
   saveCard = (event) => {
     event.preventDefault();
@@ -94,8 +98,9 @@ class App extends React.Component {
   render() {
     const { cardName, cardImage, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
-      cardRare, cardTrunfo, saveButton, hasTrunfo,
-      cards, filterName, filterRare } = this.state;
+      cardRare, cardTrunfo, saveButton,
+      hasTrunfo, cards, filterName,
+      filterRare, filterTrunfo } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -132,6 +137,7 @@ class App extends React.Component {
             id="filterName"
             value={ filterName }
             onChange={ this.handleChange }
+            disabled={ filterTrunfo }
           />
         </label>
         <label htmlFor="filterRare">
@@ -142,6 +148,7 @@ class App extends React.Component {
             id="filterRare"
             value={ filterRare }
             onChange={ this.handleChange }
+            disabled={ filterTrunfo }
           >
             <option>todas</option>
             <option>normal</option>
@@ -149,12 +156,23 @@ class App extends React.Component {
             <option>muito raro</option>
           </select>
         </label>
-        <Album
+        <label htmlFor="filterTrunfo">
+          Super Trunfo
+          <input
+            type="checkbox"
+            data-testid="trunfo-filter"
+            checked={ filterTrunfo }
+            onChange={ this.handleChange }
+            name="filterTrunfo"
+            id="filterTrunfo"
+          />
+        </label>
+        { filterTrunfo ? <SuperTrunfo cards={ cards } /> : <Album
           cards={ cards }
           excludeCard={ this.excludeCard }
           filterName={ filterName }
           filterRare={ filterRare }
-        />
+        /> }
       </div>
     );
   }

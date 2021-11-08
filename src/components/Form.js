@@ -120,7 +120,7 @@ class Form extends React.Component {
         {this.hasSuperTrunfo(hasTrunfo, cardTrunfo, onInputChange)}
 
         <button
-          type="submit"
+          type="button"
           data-testid="save-button"
           disabled={ isSaveButtonDisabled }
           onClick={ onSaveButtonClick }
