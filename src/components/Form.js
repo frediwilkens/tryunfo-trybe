@@ -2,12 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends React.Component {
+  hasSuperTrunfo = (hasTrunfo, cardTrunfo, onInputChange) => {
+    if (hasTrunfo) {
+      return <p>Você já tem um Super Trunfo em seu baralho</p>;
+    }
+    return (
+      <label htmlFor="cardTrunfo">
+        Super Trunfo:
+        <input
+          type="checkbox"
+          data-testid="trunfo-input"
+          checked={ cardTrunfo }
+          onChange={ onInputChange }
+          name="cardTrunfo"
+          id="cardTrunfo"
+        />
+      </label>
+    );
+  }
+
   render() {
     const { cardName, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo,
       isSaveButtonDisabled, onInputChange,
-      onSaveButtonClick,
+      onSaveButtonClick, hasTrunfo,
     } = this.props;
 
     return (
@@ -98,17 +117,7 @@ class Form extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="cardTrunfo">
-          Super Trunfo:
-          <input
-            type="checkbox"
-            data-testid="trunfo-input"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-            name="cardTrunfo"
-            id="cardTrunfo"
-          />
-        </label>
+        {this.hasSuperTrunfo(hasTrunfo, cardTrunfo, onInputChange)}
 
         <button
           type="submit"
@@ -132,6 +141,7 @@ Form.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
@@ -147,6 +157,7 @@ Form.defaultProps = {
   cardRare: '',
   cardTrunfo: false,
   isSaveButtonDisabled: true,
+  hasTrunfo: false,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
 };
