@@ -27,8 +27,6 @@ class App extends React.Component {
     };
   }
 
-  preventSubmit = (event) => event.preventDefault();
-
   saveCard = (event) => {
     event.preventDefault();
     const { cardName, cardImage, cardDescription,
@@ -102,8 +100,7 @@ class App extends React.Component {
       hasTrunfo, cards, filterName,
       filterRare, filterTrunfo } = this.state;
     return (
-      <div>
-        <h1>Tryunfo</h1>
+      <div className="mainApp">
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -128,45 +125,51 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        <label htmlFor="filterName">
-          Name Filter:
-          <input
-            type="text"
-            data-testid="name-filter"
-            name="filterName"
-            id="filterName"
-            value={ filterName }
-            onChange={ this.handleChange }
-            disabled={ filterTrunfo }
-          />
-        </label>
-        <label htmlFor="filterRare">
-          Rare Filter:
-          <select
-            data-testid="rare-filter"
-            name="filterRare"
-            id="filterRare"
-            value={ filterRare }
-            onChange={ this.handleChange }
-            disabled={ filterTrunfo }
-          >
-            <option>todas</option>
-            <option>normal</option>
-            <option>raro</option>
-            <option>muito raro</option>
-          </select>
-        </label>
-        <label htmlFor="filterTrunfo">
-          Super Trunfo
-          <input
-            type="checkbox"
-            data-testid="trunfo-filter"
-            checked={ filterTrunfo }
-            onChange={ this.handleChange }
-            name="filterTrunfo"
-            id="filterTrunfo"
-          />
-        </label>
+        <div className="filter-box">
+          <h2>Filtros:</h2>
+          <label className="filterLabel" htmlFor="filterName">
+            Name Filter:
+            <input
+              type="text"
+              data-testid="name-filter"
+              name="filterName"
+              id="filterName"
+              className="filtername"
+              value={ filterName }
+              onChange={ this.handleChange }
+              disabled={ filterTrunfo }
+            />
+          </label>
+          <label className="filterLabel" htmlFor="filterRare">
+            Rare Filter:
+            <select
+              data-testid="rare-filter"
+              name="filterRare"
+              id="filterRare"
+              className="filterRare"
+              value={ filterRare }
+              onChange={ this.handleChange }
+              disabled={ filterTrunfo }
+            >
+              <option>todas</option>
+              <option>normal</option>
+              <option>raro</option>
+              <option>muito raro</option>
+            </select>
+          </label>
+          <label className="filterLabel" htmlFor="filterTrunfo">
+            Super Trunfo
+            <input
+              type="checkbox"
+              data-testid="trunfo-filter"
+              checked={ filterTrunfo }
+              onChange={ this.handleChange }
+              name="filterTrunfo"
+              id="filterTrunfo"
+              className="filterTrunfo"
+            />
+          </label>
+        </div>
         { filterTrunfo ? <SuperTrunfo cards={ cards } /> : <Album
           cards={ cards }
           excludeCard={ this.excludeCard }

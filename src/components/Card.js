@@ -7,24 +7,31 @@ class Card extends React.Component {
       cardAttr1, cardAttr2, cardAttr3, cardRare } = this.props;
     return (
       <div className="card">
-        <p data-testid="name-card">{ cardName }</p>
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        <p data-testid="description-card">{ cardDescription }</p>
-        <p data-testid="attr1-card">
-          Capacity:
-          { cardAttr1 }
-        </p>
-        <p data-testid="attr2-card">
-          Crowd:
-          { cardAttr2 }
-        </p>
-        <p data-testid="attr3-card">
-          Beauty:
-          { cardAttr3 }
-        </p>
-        <p data-testid="rare-card">{ cardRare }</p>
+        <p className="title" data-testid="name-card">{ cardName }</p>
+        <div className="image-box">
+          <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+        </div>
+        <p className="description" data-testid="description-card">{ cardDescription }</p>
+        <div className="attr-box">
+          <p className="attr" data-testid="attr1-card">
+            <span>Capacity:</span>
+            { cardAttr1 }
+          </p>
+          <p className="attr" data-testid="attr2-card">
+            <span>Crowd:</span>
+            { cardAttr2 }
+          </p>
+          <p className="attr" data-testid="attr3-card">
+            <span>Beauty:</span>
+            { cardAttr3 }
+          </p>
+        </div>
+        <div className="rarity-box">
+          <p className="rarity" data-testid="rare-card">{ cardRare }</p>
+        </div>
         {
-          cardTrunfo === true && <p data-testid="trunfo-card">Super Trunfo</p>
+          cardTrunfo === true
+          && <p data-testid="trunfo-card" className="ultratrunfo">Super Trunfo</p>
         }
       </div>
     );

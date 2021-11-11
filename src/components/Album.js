@@ -7,6 +7,7 @@ class Album extends React.Component {
     const { cards, excludeCard, filterName, filterRare } = this.props;
     return (
       <div className="album">
+        <h2>Album</h2>
         {
           cards
             .filter((card) => card.cardName.includes(filterName))
@@ -29,6 +30,7 @@ class Album extends React.Component {
                   cardTrunfo={ card.cardTrunfo }
                 />
                 <button
+                  className="deleteButton"
                   type="button"
                   data-testid="delete-button"
                   onClick={ () => excludeCard(card) }

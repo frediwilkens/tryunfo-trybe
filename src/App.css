@@ -1,6 +1,294 @@
+body {
+  background-image: url('./assets/champions.jpg');
+  background-repeat: repeat-y;
+  background-size: contain;
+  color: white;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.mainApp {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
 .form {
+  align-content: flex-start;
+  border: 1px white solid;
   display: flex;
   flex-wrap: wrap;
-  height: 350px;
-  width: 350px;
+  height: 600px;
+  justify-content: center;
+  margin-top: 150px;
+  width: 550px;
+}
+
+label {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  font-weight: 700;
+  height: 60px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.form-cardName, .form-cardDescription, .form-cardAttr1 {
+  background: transparent;
+  border: 1px solid #edf7f6;
+  border-radius: 7px;
+}
+
+.form-cardAttr2, .form-cardAttr3, .form-cardImage {
+  background: transparent;
+  border: 1px solid #edf7f6;
+  border-radius: 7px;
+}
+
+
+.form-cardName {
+  color: #edf7f6;
+  font-size: 20px;
+  height: 60%;
+  margin-left: 10px;
+  width: 50%;
+}
+
+.descriptionLabel {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.form-cardDescription {
+  color: #edf7f6;
+  font-size: 15px;
+  margin-left: 125px;
+  resize: none;
+  text-align: justify;
+}
+
+.form-cardAttr1, .form-cardAttr2, .form-cardAttr3 {
+  color: #f19953;
+  font-size: 20px;
+  text-align: center;
+  width: 70px;
+}
+
+.form-cardAttr1 {
+  margin-left: 15px;
+}
+
+.form-cardAttr2 {
+  margin-left: 35px;
+}
+
+.form-cardAttr3 {
+  margin-left: 31px;
+}
+
+.form-cardImage {
+  color: #edf7f6;
+  font-size: 20px;
+  height: 25px;
+  margin-left: 10px;
+  width: 80%;
+}
+
+.form-cardRare {
+  background: #2660a4;
+  border-radius: 7px;
+  color: #f19953;
+  font-size: 20px;
+  height: 25px;
+  margin-left: 10px;
+  width: 100px;
+}
+
+.form-cardRare option {
+  background-color: #2660a4;
+  color: #f19953;
+  font-size: 20px;
+}
+
+.form-cardTrunfo, .filterTrunfo {
+  height: 25px;
+  width: 25px;
+}
+
+.form-cardTrunfo:checked, .filterTrunfo:checked {
+  appearance: none;
+  background: #f19953;
+  height: 25px;
+  width: 25px;
+}
+
+.Trunfed {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+}
+
+.saveButton {
+  background: #2660a4;
+  border: solid 1px #2660a4;
+  border-radius: 7px;
+  color: #f19953;
+  font-size: 20px;
+  height: 30px;
+  width: 40%;
+}
+
+.saveButton:disabled {
+  background: transparent;
+  border-color: #f19953;
+  color: #f19953;
+}
+
+.card {
+  align-content: flex-start;
+  border: 3px #f19953 double;
+  display: flex;
+  flex-wrap: wrap;
+  height: 900px;
+  justify-content: center;
+  margin-top: 10px;
+  width: 600px;
+}
+
+
+.title, .image-box, .description {
+  background-color: rgba(38, 97, 164, 0.25);
+  border: 3px solid #2660a4;
+  border-radius: 7px;
+}
+
+.rarity-box, .attr-box, .ultratrunfo {
+  background-color: rgba(38, 97, 164, 0.25);
+  border: 3px solid #2660a4;
+  border-radius: 7px;
+}
+
+.filter-box, .album {
+  background-color: rgba(38, 97, 164, 0.25);
+  border: 3px solid #2660a4;
+  border-radius: 7px;
+}
+
+.title, .ultratrunfo {
+  font-size: 35px;
+  text-align: center;
+  width: 90%;
+}
+
+.image-box {
+  align-items: center;
+  border: solid 3px #2660a4;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  width: 500px;
+}
+
+img {
+  border: #f19953 solid 3px;
+  height: 95%;
+  width: 95%;
+}
+
+.description {
+  font-size: 20px;
+  max-height: 200px;
+  min-height: 100px;
+  text-align: justify;
+  width: 500px;
+}
+
+.attr-box {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  justify-content: flex-start;
+  margin-right: 40px;
+  width: 240px;
+}
+
+.attr {
+  color: #f19953;
+  font-size: 25px;
+  height: 20px;
+}
+
+.attr span {
+  color: #edf7f6;
+  margin-right: 10px;
+}
+
+.rarity-box {
+  height: 180px;
+  margin-top: 17px;
+  width: 180px;
+}
+
+.rarity {
+  color: #f19953;
+  font-size: 50px;
+  text-align: center;
+}
+
+.filter-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.album {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 90%;
+}
+
+h2 {
+  text-align: center;
+  width: 100%;
+}
+
+.filterLabel {
+  width: 30%;
+}
+
+.filterName, .filterRare {
+  background: transparent;
+  border: #edf7f6 1px solid;
+  font-size: 20px;
+  height: 29px;
+  margin-left: 10px;
+}
+
+.filterName {
+  color: #edf7f6;
+}
+
+.filterRare, .filterRare option {
+  background-color: #2660a4;
+  color: #f19953;
+}
+
+.deleteButton {
+  background-color: rgba(241, 153, 83, 0.25);
+  color: #edf7f6;
+  font-size: 20px;
+  height: 45px;
+  margin-bottom: 10px;
+  margin-left: 200px;
+  margin-top: 10px;
+  width: 35%;
 }

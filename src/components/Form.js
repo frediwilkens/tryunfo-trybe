@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 class Form extends React.Component {
   hasSuperTrunfo = (hasTrunfo, cardTrunfo, onInputChange) => {
     if (hasTrunfo) {
-      return <p>Você já tem um Super Trunfo em seu baralho</p>;
+      return <p className="Trunfed">Você já tem um Super Trunfo em seu baralho</p>;
     }
     return (
       <label htmlFor="cardTrunfo">
         Super Trunfo:
         <input
+          className="form-cardTrunfo"
           type="checkbox"
           data-testid="trunfo-input"
           checked={ cardTrunfo }
@@ -34,6 +35,7 @@ class Form extends React.Component {
         <label htmlFor="cardName">
           Name:
           <input
+            className="form-cardName"
             type="text"
             data-testid="name-input"
             name="cardName"
@@ -43,9 +45,13 @@ class Form extends React.Component {
           />
         </label>
 
-        <label htmlFor="cardDescription">
+        <label className="descriptionLabel" htmlFor="cardDescription">
           Description:
           <textarea
+            className="form-cardDescription"
+            placeholder="Type card description here!"
+            rows="5"
+            cols="35"
             data-testid="description-input"
             value={ cardDescription }
             onChange={ onInputChange }
@@ -57,6 +63,7 @@ class Form extends React.Component {
         <label htmlFor="cardAttr1">
           Capacity:
           <input
+            className="form-cardAttr1"
             type="number"
             data-testid="attr1-input"
             onChange={ onInputChange }
@@ -69,6 +76,7 @@ class Form extends React.Component {
         <label htmlFor="cardAttr2">
           Crowd:
           <input
+            className="form-cardAttr2"
             type="number"
             data-testid="attr2-input"
             onChange={ onInputChange }
@@ -81,6 +89,7 @@ class Form extends React.Component {
         <label htmlFor="cardAttr3">
           Beauty:
           <input
+            className="form-cardAttr3"
             type="number"
             data-testid="attr3-input"
             onChange={ onInputChange }
@@ -93,6 +102,7 @@ class Form extends React.Component {
         <label htmlFor="cardImage">
           Image:
           <input
+            className="form-cardImage"
             type="text"
             data-testid="image-input"
             value={ cardImage }
@@ -105,6 +115,7 @@ class Form extends React.Component {
         <label htmlFor="cardRare">
           Raridade:
           <select
+            className="form-cardRare"
             data-testid="rare-input"
             onChange={ onInputChange }
             value={ cardRare }
@@ -120,6 +131,7 @@ class Form extends React.Component {
         {this.hasSuperTrunfo(hasTrunfo, cardTrunfo, onInputChange)}
 
         <button
+          className="saveButton"
           type="button"
           data-testid="save-button"
           disabled={ isSaveButtonDisabled }
