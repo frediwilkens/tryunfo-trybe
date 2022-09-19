@@ -1,16 +1,29 @@
-# 🚧 README em construção 🚧
+## Descrição:
+Uma página web onde é possível criar cartas de super trunfo e conferir o seu baralho de super trunfo no final da página.
 
-<!-- Olá, Tryber!
+#### OBS:
+Este projeto foi feito durante o módulo de Front-end do curso da Trybe e portanto não trata-se de uma ideia de minha autoria. O tema do super trunfo era livre.
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+## Tecnologias utilizadas:
+- React
+- CSS
 
-É essencial que você preencha esse documento por conta própria, ok?
+## Habilidades Desenvolvidas:
+- Atribuir e manipular estados dos componentes
+- Criar interações entre componentes através de seus estados
+- Capturar eventos utilizando a sintaxe do React
+- Validar props de um componente através do PropTypes
+- Estilizar componentes com CSS
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+## Como rodar:
+1. Clone o repositório
+  * `git clone git@github.com:frediwilkens/tryunfo-trybe.git`.
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd tryunfo-trybe`
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
+2. Instale as dependências
+  * Instale as dependências:
+    * `npm install`
 
--->
+3. Inicialize o projeto
+   * `npm start` (uma nova página deve abrir no seu navegador)
